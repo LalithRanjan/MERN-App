@@ -15,3 +15,7 @@
 .rating span {
   color: #edb819;
 }
+
+img.large {
+  max-width: 100%;
+}
