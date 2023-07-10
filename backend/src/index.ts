@@ -6,13 +6,12 @@ const app = express()
 app.use(
   cors({
     credentials: true,
-    origin: ['http://localhost:5173'],
+    origin: ['http://localhost:5174'],
   })
 )
 
-app.get('/api/products', (req: Request, res: Response) => {
-  res.json(sampleProducts)
-})
+app.use('/api/products', productRouter)
+app.use('/api/seed', seedRouter)
 
 const PORT = 4000
 app.listen(PORT, () => {
