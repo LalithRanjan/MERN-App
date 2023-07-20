@@ -19,6 +19,9 @@ export class Product {
   @prop({ required: true })
   public category!: string
 
+  @prop({ required: true })
+  public description!: string
+
   @prop({ required: true, default: 0 })
   public price!: number
 
