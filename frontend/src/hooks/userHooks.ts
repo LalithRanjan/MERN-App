@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query'
 import apiClient from '../apiClient'
-import { UserInfo } from '../types/UserInfo'
+import { User } from '../types/User'
 
 export const useSigninMutation = () =>
   useMutation({
@@ -13,7 +13,28 @@ export const useSigninMutation = () =>
     }) =>
       // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       (
-        await apiClient.post<UserInfo>(`api/users/signin`, {
+        await apiClient.post<User>(`api/users/signin`, {
+          email,
+          password,
+        })
+      ).data,
+  })
+
+export const useSignupMutation = () =>
+  useMutation({
+    mutationFn: async ({
+      name,
+      email,
+      password,
+    }: {
+      name: string
+      email: string
+      password: string
+    }) =>
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+      (
+        await apiClient.post<User>(`api/users/signup`, {
+          name,
           email,
           password,
         })

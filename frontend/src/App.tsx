@@ -41,7 +41,7 @@ function App() {
       <header>
         <Navbar expand="lg">
           <Container>
-            <Navbar.Brand>AMAZON</Navbar.Brand>
+            <Navbar.Brand>Shop Place</Navbar.Brand>
           </Container>
           <Nav>
             <Button variant={mode} onClick={switchModeHandler}>
@@ -57,6 +57,9 @@ function App() {
             </Link>
             {userInfo ? (
               <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+                <NavDropdown.Item>
+                  <Link to="/orderhistory"> Order History</Link>
+                </NavDropdown.Item>
                 <Link
                   className="dropdown-item"
                   to="#signout"
